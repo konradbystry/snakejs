@@ -1,13 +1,12 @@
 const express = require("express");
-
 const port=3000;
+const app = express();
 
-const server = express();
+app.use(express.static(__dirname+"/public"));
 
-server.set("view engine", "hbs");
-
-server.get ('/', (request, response) => {
-    response.render("main");
+app.set("view engine", "hbs");
+app.get ('/', (request, response) => {
+    response.render("index.hbs");
 })
 
-server.listen(port);
+app.listen(port);
