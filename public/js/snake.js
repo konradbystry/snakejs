@@ -1,6 +1,6 @@
-class Snake{
+export default class Snake{
     
-    constructor(){
+    constructor(ctx){
         this.snake=[{x : 280, y : 300}];   
     }
     
@@ -9,7 +9,7 @@ class Snake{
     }
 
     draw_snake(snake_part) {
-        snake.forEach(draw_snake_part) ;
+        this.snake.forEach(draw_snake_part) ;
     }
 
     score_point(snake) {
