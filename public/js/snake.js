@@ -3,6 +3,9 @@ export default class Snake{
     constructor(){
         this.snake_body = [{x : 280, y : 300}, {x : 300, y : 300}, {x : 320, y :300}]; 
         this.ctx = document.querySelector("#game_canvas").getContext("2d");  
+        this.move_directions = [-20, 20];
+        this.direction_x=-20;
+        this.direction_y=0;
     }
     
     /*
@@ -25,7 +28,6 @@ export default class Snake{
 
     move(direction_x, direction_y){
         let snake_head = this.snake_body[0]; 
-        console.log(snake_head);
         this.snake_body.pop();
         this.snake_body.unshift({ x : snake_head.x + direction_x , y: snake_head.y + direction_y })
     }
