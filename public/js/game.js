@@ -1,11 +1,15 @@
 import Snake from "./snake.js"
 import Game_board from "./game_board.js"
+import Food from "./food.js"
 
 const game_board = new Game_board();
 const snake = new Snake();
+const food = new Food();
 let snake_body = snake.snake_body;
 
 snake.draw_snake(snake_body);
+food.set_food_cords();
+
 
 window.addEventListener("keydown", (event)=>{
     event.preventDefault();
@@ -26,7 +30,8 @@ window.addEventListener("keydown", (event)=>{
 
 setInterval(function onTick(){
     console.log(snake.direction_x, snake.direction_y); 
-    game_board.clear_game_board(); 
+    game_board.clear_game_board();
+    food.draw_food(); 
     snake.move(); 
     snake.draw_snake(snake_body)}, 100);
 
