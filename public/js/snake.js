@@ -4,20 +4,14 @@ export default class Snake{
         this.snake_body = [{x : 280, y : 300}, {x : 300, y : 300}, {x : 320, y :300}]; 
         this.ctx = document.querySelector("#game_canvas").getContext("2d");  
         this.move_directions = [-20, 20];
-        this.direction_x=-20;
-        this.direction_y=0;
-        this.move_right={x : 20, y : 0};
-        this.move_left={x :-20, y : 0};
-        this.move_up={x : 0, y : -20};
-        this.move_down={x : 0, y : 20};
+        this.direction_x = -20;
+        this.direction_y = 0;
+        this.move_right = {x : 20, y : 0};
+        this.move_left = {x :-20, y : 0};
+        this.move_up = {x : 0, y : -20};
+        this.move_down = {x : 0, y : 20};
+        this.direction = "left";
     }
-    
-    /*
-    draw_snake_part(snake_part){
-       
-        this.ctx.fillRect(snake_part.x, snake_part.y, 20, 20);
-    }
-   */
     
     draw_snake(snake_part){
         this.snake_body.forEach((snake_part) => {
@@ -39,6 +33,30 @@ export default class Snake{
 
     get_direction_y(){
         return this.direction_y;
+    }
+
+    set_direction_left(){
+        this.direction = "left";
+        this.set_direction_x(this.move_left.x);
+        this.set_direction_y(this.move_left.y);
+    }
+
+    set_direction_right(){
+        this.direction = "right";
+        this.set_direction_x(this.move_right.x);
+        this.set_direction_y(this.move_right.y);
+    }
+
+    set_direction_up(){
+        this.direction = "up";
+        this.set_direction_x(this.move_up.x);
+        this.set_direction_y(this.move_up.y);
+    }
+
+    set_direction_down(){
+        this.direction = "down";
+        this.set_direction_x(this.move_down.x);
+        this.set_direction_y(this.move_down.y);
     }
 
     move(){
