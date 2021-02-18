@@ -10,21 +10,17 @@ snake.draw_snake(snake_body);
 window.addEventListener("keydown", (event)=>{
     event.preventDefault();
     
-    if(event.key == "ArrowLeft"){
-        snake.set_direction_x(snake.move_left.x);
-        snake.set_direction_y(snake.move_left.y);
+    if(snake.direction != "right" && event.key == "ArrowLeft"){
+        snake.set_direction_left();
     }  
-    if(event.key == "ArrowRight"){
-        snake.set_direction_x(snake.move_right.x);
-        snake.set_direction_y(snake.move_right.y);
+    if(snake.direction != "left" && event.key == "ArrowRight"){
+        snake.set_direction_right();
     }  
-    if(event.key == "ArrowUp"){
-        snake.set_direction_x(snake.move_up.x);
-        snake.set_direction_y(snake.move_up.y);
+    if(snake.direction != "down" && event.key == "ArrowUp"){
+        snake.set_direction_up();
     }  
-    if(event.key == "ArrowDown"){
-        snake.set_direction_x(snake.move_down.x);
-        snake.set_direction_y(snake.move_down.y);
+    if(snake.direction != "up" && event.key == "ArrowDown"){
+        snake.set_direction_down();
     }          
 })
 
