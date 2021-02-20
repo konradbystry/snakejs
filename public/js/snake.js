@@ -1,7 +1,7 @@
 export default class Snake{
     
     constructor(){
-        this.snake_body = [{x : 280, y : 300}, {x : 300, y : 300}, {x : 320, y :300}, {x : 340, y :300}, {x : 360, y :300},, {x : 380, y :300}]; 
+        this.snake_body = [{x : 280, y : 300}, {x : 300, y : 300}, {x : 320, y :300}, {x : 340, y :300}, {x : 360, y :300}, {x : 380, y :300}]; 
         this.ctx = document.querySelector("#game_canvas").getContext("2d");  
         this.move_directions = [-20, 20];
         this.direction_x = -20;
@@ -71,15 +71,21 @@ export default class Snake{
         this.set_direction_y(0);
     }
     
-    crash(snake_body){
+    crash_into_wall(snake_body){
         if(snake_body[0].x > 580 || snake_body[0].y > 580 || snake_body[0].x < 0 || snake_body[0].y < 0){
             return true;
         }else return false;
         
     }
 
-    crash_into_snake(){
-
+    crash_into_snake(snake_body){
+       
+        for(var i = 1; i < snake_body.length; i++){
+            if(snake_body[i].x == snake_body[0].x && snake_body[i].y == snake_body[0].y){
+                return true;
+            }
+        }
+        return false;
     }
 
 

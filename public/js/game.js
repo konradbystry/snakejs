@@ -28,16 +28,18 @@ window.addEventListener("keydown", (event)=>{
     }          
 })
 
-setInterval(function onTick(){
+
+
+setInterval(function onTick(){         //change to setTimout + while loop
      
     game_board.clear_game_board();
     food.draw_food();
-    if(snake.crash(snake_body)){
+    if(snake.crash_into_wall(snake_body) || snake.crash_into_snake(snake_body)){
         return 0;
     }; 
     snake.move(); 
     snake.draw_snake(snake_body);
-    console.log(snake.crash(snake_body))}, 100);
+    console.log(snake.crash_into_snake(snake_body))}, 100);
 
     
 
