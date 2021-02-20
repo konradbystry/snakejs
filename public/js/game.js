@@ -29,11 +29,15 @@ window.addEventListener("keydown", (event)=>{
 })
 
 setInterval(function onTick(){
-    console.log(snake.direction_x, snake.direction_y); 
+     
     game_board.clear_game_board();
-    food.draw_food(); 
+    food.draw_food();
+    if(snake.crash(snake_body)){
+        return 0;
+    }; 
     snake.move(); 
-    snake.draw_snake(snake_body)}, 100);
+    snake.draw_snake(snake_body);
+    console.log(snake.crash(snake_body))}, 100);
 
     
 
