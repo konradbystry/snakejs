@@ -72,15 +72,15 @@ export default class Snake{
     }
     
     crash(snake_body){
+        if(snake_body[0].x > 580 || snake_body[0].y > 580 || snake_body[0].x < 0 || snake_body[0].y < 0){
+            return true;
+        }else return false;
         
-        for ( var i = 1; i < snake_body.length; i++ ){
-            if(snake_body[0].x > 580 || snake_body[0].y > 580 || snake_body[0].x < 0 || snake_body[0].y < 0){
-                return true;
-            }else return false;
-        }
     }
 
+    crash_into_snake(){
 
+    }
 
 
 }
