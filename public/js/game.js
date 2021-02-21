@@ -30,19 +30,39 @@ window.addEventListener("keydown", (event)=>{
 
 
 
-setInterval(function onTick(){         //change to setTimout + while loop
-     
-    game_board.clear_game_board();
-    food.draw_food();
-    if(snake.crash_into_wall(snake_body) || snake.crash_into_snake(snake_body)){
-        return 0;
-    }; 
-    snake.move(); 
-    snake.draw_snake(snake_body);
-    console.log(snake.crash_into_snake(snake_body))}, 100);
 
+function main(){
+    setTimeout(function onTick(){         //change to requestAnmiationFrame (move() function needs to be updated)
+        game_board.clear_game_board();
+        food.draw_food();
+        snake.move(); 
+        snake.draw_snake(snake_body);
+        if(!snake.crash_into_wall(snake_body) && !snake.crash_into_snake(snake_body)){
+            main();
+        };
+        }, 100);
+    }
+    main();
+
+
+
+
+
+
+
+/*
+function main(){
     
+    snake.move();
+    snake.draw_snake();
+    if(!snake.crash_into_wall(snake_body) || !snkae.crash_into_snake(snake_body)){
+         window.requestAnimationFrame(main);
+    }
+   
+}  
 
+main();
+*/
 
 
 
