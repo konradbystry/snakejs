@@ -6,7 +6,7 @@ export default class Food {
             return Math.floor(Math.random() * (max - min + 1) + min)
         };
         this.get_random_20 = function () {
-            return this.get_random_int(0, 30) * 20;
+            return this.get_random_int(0, 29) * 20;
         };
     }
 
