@@ -40,6 +40,10 @@ function main(){
         if(!snake.crash_into_wall(snake_body) && !snake.crash_into_snake(snake_body)){
             main();
         };
+        if(snake.ate(food.food_cords, snake_body)){
+            snake.add_snake_part(snake_body);
+            food.set_food_cords();
+        }
         }, 100);
     }
     main();
