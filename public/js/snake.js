@@ -63,7 +63,7 @@ export default class Snake{
     move(){
         let snake_head = this.snake_body[0]; 
         this.snake_body.pop();
-        this.snake_body.unshift({ x : snake_head.x + this.get_direction_x() , y: snake_head.y + this.get_direction_y() })
+        this.snake_body.unshift({ x : snake_head.x + this.get_direction_x(), y: snake_head.y + this.get_direction_y() })
     }
 
     stop(){
@@ -88,6 +88,17 @@ export default class Snake{
         return false;
     }
 
+    ate(food_cords, snake_body){
+        
+        if(snake_body[0].x == food_cords.x && snake_body[0].y == food_cords.y ){
+            return true;
+        }else return false;
+    }
+
+    add_snake_part(snake_body){
+        let end_of_snake = snake_body[snake_body.length - 1];
+        snake_body.push({ x : end_of_snake.x - this.get_direction_x(), y : end_of_snake.y - this.get_direction_y() });
+    }
 
 }
 
